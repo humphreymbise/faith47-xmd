@@ -43,8 +43,8 @@ router.get('/', async (req, res) => {
 				browser: Browsers.macOS("Desktop"),
 			});
 
-			Qr_Code_By_Wasi_Tech.ev.on('creds.update', saveCreds)
-			Qr_Code_By_Wasi_Tech.ev.on("connection.update", async (s) => {
+			Qr_Code_By_zeze_Tech.ev.on('creds.update', saveCreds)
+			Qr_Code_By_zeze_Tech.ev.on("connection.update", async (s) => {
 				const {
 					connection,
 					lastDisconnect,
@@ -56,23 +56,23 @@ router.get('/', async (req, res) => {
 					let data = fs.readFileSync(__dirname + `/temp/${id}/creds.json`);
 					await delay(800);
 				   let b64data = Buffer.from(data).toString('base64');
-				   let session = await Qr_Code_By_Wasi_Tech.sendMessage(Qr_Code_By_Wasi_Tech.user.id, { text: '' + b64data });
+				   let session = await Qr_Code_By_zeze_Tech.sendMessage(Qr_Code_By_Wasi_Tech.user.id, { text: '' + b64data });
 	
 				   let WASI_MD_TEXT = `
 ┏━━━━━━━━━━━━━━
-┃QUEEN_ANITA_V2 SESSION IS 
+┃FAITH_bug-MD V² SESSION IS 
 ┃SUCCESSFULLY
 ┃CONNECTED ✅🔥
 ┗━━━━━━━━━━━━━━━
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-❶ || Creator = 𖥘 DAVID CYRIL 𖥘
+❶ || Creator = 𖥘 ZEZE TECH 𖥘
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-❷ || WhattsApp Channel = https://whatsapp.com/channel/0029VaeRru3ADTOEKPCPom0L
+❷ || WhattsApp Channel = https://whatsapp.com/channel/0029VbANIT5D8SDpK7oExi1v
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 Please Follow My Support Channel
-Wanna talk to me?👉 https://t.me/deecee_x 👈
+ 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-©*2024-2099 David Cyril*
+©*2025-2099 available*
 _____________________________________
 	
 _Don't Forget To Give Star To My Repo_`
