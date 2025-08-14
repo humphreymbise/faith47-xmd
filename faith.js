@@ -1,37 +1,30 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import { fileURLToPath } from 'url';
-import path from 'path';
-
-// Importing the 'pair' module
-import server from './qr.js';
-import code from './pair.js';
-
+const express = require('express');
 const app = express();
-
-// Resolve the current directory path in ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
+__path = process.cwd()
+const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 8000;
-
-import('events').then(events => {
-    events.EventEmitter.defaultMaxListeners = 500;
-});
-app.use('/qr', server);
+let server = require('./qr.js'),
+    code = require('./pair');
+require('events').EventEmitter.defaultMaxListeners = 500;
+app.use('/wasiqr', server);
 app.use('/code', code);
-app.use('/pair', async (req, res) => {
-    res.sendFile(path.join(__dirname, 'pair.html'));
-});
-app.use('/', async (req, res) => {
-    res.sendFile(path.join(__dirname, 'home.html'));
-});
-
+app.use('/pair',async (req, res, next) => {
+res.sendFile(__path + '/pair.html')
+})
+app.use('/',async (req, res, next) => {
+res.sendFile(__path + '/wasipage.html')
+})
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.listen(PORT, () => {
-    console.log(`Instagram: @um4rxd\n\nGitHub: @Um4r719\n\nServer running on http://localhost:${PORT}`);
-});
+    console.log(`
+Don't Forget To Give Star
 
-export default app;
+ Server running on http://localhost:` + PORT)
+})
+
+module.exports = app
+/**
+    powered by wasi tech team 
+    join Whatsapp channel for more updates 
+    **/
